@@ -1,0 +1,36 @@
+services:
+
+  ollama-service:
+    profiles: [container]
+    image: ollama/ollama:0.1.28
+    volumes:
+      - ./ollama:/root/.ollama
+    ports:
+      - 11434:11434
+
+  download-llm:
+    profiles: [container]
+    image: curlimages/curl:8.6.0
+    entrypoint: ["curl", "ollama-service:11434/api/pull", "-d", "{\"name\": \"${LLM}\"}"]
+    depends_on:
+      ollama-service:
+        condition: service_started
+
+  web-app:
+    profiles: [container, webapp]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+      - LLM=${LLM}
+      - HTTP_PORT=8888
+      # host.docker.internal: listening the host from the container
+    ports:
+      - 8888:8888
+    develop:
+      watch:
+        - action: rebuild
+          path: ./webroot
+        - action: rebuild
+          path: ./src
