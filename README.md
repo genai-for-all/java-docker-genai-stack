@@ -1,5 +1,7 @@
 # Java Docker GenAI Stack ☕️🐳🤖🦜🔗🦙
 
+> 👋 you can use this project with [Visual Studio Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers). Take a look at the `.devcontainer.json` file. The Docker image is defined int this repository [https://github.com/genai-for-all/java-workspace](https://github.com/genai-for-all/java-workspace).
+
 ## Run all in containers
 
 ```bash

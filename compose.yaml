@@ -4,7 +4,7 @@ services:
     profiles: [container]
     image: ollama/ollama:0.1.28
     volumes:
-      - ./ollama:/root/.ollama
+      - ollama-data:/root/.ollama
     ports:
       - 11434:11434
 
@@ -34,3 +34,6 @@ services:
           path: ./webroot
         - action: rebuild
           path: ./src
+
+volumes:
+  ollama-data:
