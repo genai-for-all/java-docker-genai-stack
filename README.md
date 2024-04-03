@@ -5,7 +5,7 @@
 ## Run all in containers
 
 ```bash
-LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama-service:11434 docker compose --profile container up
+LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama:11434 docker compose --profile container up
 ```
 > The first time only, you must wait for the complete downloading of the model.
 
@@ -37,7 +37,7 @@ curl -H "Content-Type: application/json" http://localhost:8080/prompt \
 
 > All in containers
 ```bash
-LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama-service:11434 docker compose --profile container up --build
+LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama:11434 docker compose --profile container up --build
 ```
 
 > Use the Ollama local install (like on macOS)
@@ -51,7 +51,7 @@ For developping the application, use the `watch` command of Docker Compose
 
 > All in containers
 ```bash
-LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama-service:11434 docker compose --profile container watch
+LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama:11434 docker compose --profile container watch
 ```
 > Use the Ollama local install (like on macOS)
 ```bash

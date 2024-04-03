@@ -1,6 +1,6 @@
 services:
 
-  ollama-service:
+  ollama:
     profiles: [container]
     image: ollama/ollama:0.1.28
     volumes:
@@ -13,7 +13,7 @@ services:
     image: curlimages/curl:8.6.0
     entrypoint: ["curl", "ollama-service:11434/api/pull", "-d", "{\"name\": \"${LLM}\"}"]
     depends_on:
-      ollama-service:
+      ollama:
         condition: service_started
 
   web-app:

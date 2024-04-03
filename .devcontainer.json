@@ -2,5 +2,12 @@
     "image":"k33g/genai-java-workspace:0.0.0",
     "mounts": [
         "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-    ]
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack"
+            ]
+        }
+    }
 }
