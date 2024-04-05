@@ -5,7 +5,7 @@
 ## Run all in containers
 
 ```bash
-LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama:11434 docker compose --profile container up
+HTTP_PORT=8888 LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama:11434 docker compose --profile container up
 ```
 > The first time only, you must wait for the complete downloading of the model.
 
@@ -17,7 +17,7 @@ LLM=deepseek-coder ollama pull ${LLM}
 ```
 
 ```bash
-LLM=deepseek-coder OLLAMA_BASE_URL=http://host.docker.internal:11434 docker compose --profile webapp up
+HTTP_PORT=8888 LLM=deepseek-coder OLLAMA_BASE_URL=http://host.docker.internal:11434 docker compose --profile webapp up
 ```
 
 ## Use the GPU from the Ollama container on Linux or Windows
@@ -37,12 +37,12 @@ curl -H "Content-Type: application/json" http://localhost:8080/prompt \
 
 > All in containers
 ```bash
-LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama:11434 docker compose --profile container up --build
+HTTP_PORT=8888 LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama:11434 docker compose --profile container up --build
 ```
 
 > Use the Ollama local install (like on macOS)
 ```bash
-LLM=deepseek-coder OLLAMA_BASE_URL=http://host.docker.internal:11434 docker compose --profile webapp up --build
+HTTP_PORT=8888 LLM=deepseek-coder OLLAMA_BASE_URL=http://host.docker.internal:11434 docker compose --profile webapp up --build
 ```
 
 ## Development mode
@@ -51,11 +51,11 @@ For developping the application, use the `watch` command of Docker Compose
 
 > All in containers
 ```bash
-LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama:11434 docker compose --profile container watch
+HTTP_PORT=8888 LLM=deepseek-coder OLLAMA_BASE_URL=http://ollama:11434 docker compose --profile container watch
 ```
 > Use the Ollama local install (like on macOS)
 ```bash
-LLM=deepseek-coder OLLAMA_BASE_URL=http://host.docker.internal:11434 docker compose --profile webapp watch
+HTTP_PORT=8888 LLM=deepseek-coder OLLAMA_BASE_URL=http://host.docker.internal:11434 docker compose --profile webapp watch
 ```
 
 

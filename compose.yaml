@@ -24,10 +24,10 @@ services:
     environment:
       - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
       - LLM=${LLM}
-      - HTTP_PORT=8888
+      - HTTP_PORT=${HTTP_PORT}
       # host.docker.internal: listening the host from the container
     ports:
-      - 8888:8888
+      - ${HTTP_PORT}:${HTTP_PORT}
     develop:
       watch:
         - action: rebuild
